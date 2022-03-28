@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func  didTapButton() {
-        let homeVC = storyboard?.instantiateViewController(withIdentifier: "HomeVC") as! HomeViewController
+        let homeVC = storyboard?.instantiateViewController(withIdentifier: "Home_VC") as! HomeViewController
         present(homeVC, animated: true, completion: nil)
     }
 
