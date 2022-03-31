@@ -11,7 +11,6 @@ class LaunchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("123")
     }
     
     @IBAction func  didTapButton() {

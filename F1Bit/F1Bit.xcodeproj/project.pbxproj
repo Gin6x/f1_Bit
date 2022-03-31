@@ -17,6 +17,7 @@
 		BE86C46F27F4D4B400BEA516 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE86C46E27F4D4B400BEA516 /* IntroViewController.swift */; };
 		BE86C47227F4D7E200BEA516 /* CircuitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE86C47127F4D7E200BEA516 /* CircuitViewController.swift */; };
 		BE86C47427F4D7ED00BEA516 /* DriverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE86C47327F4D7ED00BEA516 /* DriverViewController.swift */; };
+		BE86C47727F5BB8000BEA516 /* RankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE86C47627F5BB8000BEA516 /* RankingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		BE86C46E27F4D4B400BEA516 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		BE86C47127F4D7E200BEA516 /* CircuitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircuitViewController.swift; sourceTree = "<group>"; };
 		BE86C47327F4D7ED00BEA516 /* DriverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverViewController.swift; sourceTree = "<group>"; };
+		BE86C47627F5BB8000BEA516 /* RankingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 			children = (
 				BE23606327E152490025F77B /* LaunchViewController.swift */,
 				BE86C47027F4D7B500BEA516 /* HomePage */,
+				BE86C47527F5BB6200BEA516 /* RankingPage */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -93,6 +96,14 @@
 				BE86C47327F4D7ED00BEA516 /* DriverViewController.swift */,
 			);
 			path = HomePage;
+			sourceTree = "<group>";
+		};
+		BE86C47527F5BB6200BEA516 /* RankingPage */ = {
+			isa = PBXGroup;
+			children = (
+				BE86C47627F5BB8000BEA516 /* RankingViewController.swift */,
+			);
+			path = RankingPage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,6 +184,7 @@
 				BE86C47227F4D7E200BEA516 /* CircuitViewController.swift in Sources */,
 				BE86C47427F4D7ED00BEA516 /* DriverViewController.swift in Sources */,
 				BE6E8FE927F25C6C009EC8A7 /* HomeViewController.swift in Sources */,
+				BE86C47727F5BB8000BEA516 /* RankingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

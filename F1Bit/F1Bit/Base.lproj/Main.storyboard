@@ -28,7 +28,7 @@
         <!--Ranking-->
         <scene sceneID="47v-Kp-6jV">
             <objects>
-                <viewController id="cIb-bd-xYb" sceneMemberID="viewController">
+                <viewController id="cIb-bd-xYb" customClass="RankingViewController" customModule="F1Bit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VyQ-Hp-ICw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -39,24 +39,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J1C-sc-cJL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="825" y="1645"/>
+            <point key="canvasLocation" x="828" y="1643.9280359820091"/>
         </scene>
         <!--Ranking-->
         <scene sceneID="tA5-df-M6y">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YSl-uX-Hmr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController id="2lS-Iw-4WO" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Ranking" image="lanyardcard" catalog="system" id="Asd-TQ-Xn0"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="b2v-xW-WHO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" systemColor="systemRedColor"/>
                     </navigationBar>
                     <connections>
                         <segue destination="cIb-bd-xYb" kind="relationship" relationship="rootViewController" id="LMV-5s-EQc"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YSl-uX-Hmr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="825" y="939"/>
+            <point key="canvasLocation" x="828" y="940"/>
         </scene>
         <!--More-->
         <scene sceneID="tnR-sF-vTN">
@@ -195,11 +196,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WOK-tL-sru" customClass="launchView">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WOK-tL-sru">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome to F1Bit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vus-5u-Imc" customClass="launchTitleLabel">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome to F1Bit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vus-5u-Imc">
                                         <rect key="frame" x="35" y="47" width="305" height="123"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="32"/>
