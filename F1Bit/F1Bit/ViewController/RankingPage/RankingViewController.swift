@@ -6,13 +6,9 @@
 //
 
 import UIKit
+import DropdownMenu
 
 class RankingViewController: UIViewController {
-    
-    @IBOutlet weak var topView: UIView!
-    @IBOutlet weak var DriverBtn: UIButton!
-    @IBOutlet weak var TeamBtn: UIButton!
-    @IBOutlet weak var dropDownMenuView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
