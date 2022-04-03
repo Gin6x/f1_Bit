@@ -14,7 +14,7 @@ class RankingViewController: UIViewController {
     @IBOutlet var seasonsTextField: UITextField!
     
     //Options for pickerView
-    let ranks = ["Driver", "Team", "Hello"]
+    let ranks = ["Driver", "Team", "YOMAN"]
     let seasons = ["2022", "2021", "2020"]
     var whichRank = "Driver"
     var whichSeason = "2022"
