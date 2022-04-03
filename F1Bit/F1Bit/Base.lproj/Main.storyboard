@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vxg-ZI-JqE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zrp-Py-a8E">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -26,22 +26,6 @@
             <point key="canvasLocation" x="1545" y="940"/>
         </scene>
         <!--Ranking-->
-        <scene sceneID="47v-Kp-6jV">
-            <objects>
-                <viewController id="cIb-bd-xYb" customClass="RankingViewController" customModule="F1Bit" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="VyQ-Hp-ICw">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="oZj-4u-W3d"/>
-                        <color key="backgroundColor" systemColor="systemRedColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Ranking" id="TxV-qb-iFp"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="J1C-sc-cJL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="828" y="1643.9280359820091"/>
-        </scene>
-        <!--Ranking-->
         <scene sceneID="tA5-df-M6y">
             <objects>
                 <navigationController id="2lS-Iw-4WO" sceneMemberID="viewController">
@@ -52,12 +36,103 @@
                         <color key="backgroundColor" systemColor="systemRedColor"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="cIb-bd-xYb" kind="relationship" relationship="rootViewController" id="LMV-5s-EQc"/>
+                        <segue destination="Xyb-co-xI6" kind="relationship" relationship="rootViewController" id="seA-Vb-VgZ"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YSl-uX-Hmr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="828" y="940"/>
+        </scene>
+        <!--Ranking-->
+        <scene sceneID="9d9-gW-CO6">
+            <objects>
+                <viewController storyboardIdentifier="Ranking_VC" id="Xyb-co-xI6" customClass="RankingViewController" customModule="F1Bit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rjO-r5-bR2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Voj-MG-ctj">
+                                <rect key="frame" x="0.0" y="403" width="375" height="166"/>
+                                <subviews>
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="030-mJ-TIN">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="375" id="0Ci-AX-WMT"/>
+                                            <constraint firstAttribute="height" constant="44" id="O7d-xO-cqw"/>
+                                        </constraints>
+                                        <items>
+                                            <barButtonItem systemItem="flexibleSpace" id="pkm-tf-kig"/>
+                                            <barButtonItem systemItem="done" id="EKW-aS-556"/>
+                                        </items>
+                                        <color key="barTintColor" systemColor="systemGray6Color"/>
+                                    </toolbar>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5NN-un-qHw">
+                                        <rect key="frame" x="0.0" y="44" width="375" height="122"/>
+                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="375" id="8Mo-pj-bM6"/>
+                                            <constraint firstAttribute="height" constant="122" id="Je4-FJ-aWe"/>
+                                        </constraints>
+                                    </pickerView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="166" id="XAz-8Z-rxS"/>
+                                    <constraint firstAttribute="width" constant="375" id="w6D-zn-vIL"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="2iC-3u-Hm7">
+                                <rect key="frame" x="15" y="44" width="345" height="35"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="08b-kL-wOV">
+                                        <rect key="frame" x="0.0" y="0.0" width="160" height="35"/>
+                                        <color key="backgroundColor" systemColor="systemGray3Color"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="MhB-5E-VAS"/>
+                                            <constraint firstAttribute="width" constant="160" id="Vqh-LX-ikO"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5ch-Le-V0Q">
+                                        <rect key="frame" x="183" y="0.0" width="162" height="35"/>
+                                        <color key="backgroundColor" systemColor="systemGray3Color"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="EQr-qx-Uwz"/>
+                                            <constraint firstAttribute="width" constant="160" id="g9W-em-4LG"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="343" id="aYJ-nn-Pcb"/>
+                                    <constraint firstAttribute="height" constant="35" id="vf8-fJ-D8G"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="cf6-6r-741"/>
+                        <color key="backgroundColor" systemColor="systemRedColor"/>
+                        <constraints>
+                            <constraint firstItem="2iC-3u-Hm7" firstAttribute="leading" secondItem="cf6-6r-741" secondAttribute="leading" constant="15" id="ENl-EJ-kdj"/>
+                            <constraint firstItem="cf6-6r-741" firstAttribute="trailing" secondItem="2iC-3u-Hm7" secondAttribute="trailing" constant="15" id="OEh-m6-Ly5"/>
+                            <constraint firstItem="Voj-MG-ctj" firstAttribute="trailing" secondItem="cf6-6r-741" secondAttribute="trailing" id="Opd-CJ-H8g"/>
+                            <constraint firstItem="Voj-MG-ctj" firstAttribute="leading" secondItem="cf6-6r-741" secondAttribute="leading" id="UnL-qn-Nml"/>
+                            <constraint firstItem="Voj-MG-ctj" firstAttribute="bottom" secondItem="cf6-6r-741" secondAttribute="bottom" id="bkd-ZB-08E"/>
+                            <constraint firstItem="2iC-3u-Hm7" firstAttribute="top" secondItem="cf6-6r-741" secondAttribute="top" id="sYr-Ch-Nml"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Ranking" id="F3b-Ti-t23"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="rankingPickerView" destination="5NN-un-qHw" id="goZ-jr-wX8"/>
+                        <outlet property="ranksTextField" destination="08b-kL-wOV" id="jJ5-jk-AHQ"/>
+                        <outlet property="seasonsTextField" destination="5ch-Le-V0Q" id="tRb-EB-lKY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y50-LU-D5G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="828" y="1643.9280359820091"/>
         </scene>
         <!--More-->
         <scene sceneID="tnR-sF-vTN">
@@ -283,6 +358,12 @@
         </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray3Color">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

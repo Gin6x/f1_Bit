@@ -17,7 +17,7 @@
 		BE86C46F27F4D4B400BEA516 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE86C46E27F4D4B400BEA516 /* IntroViewController.swift */; };
 		BE86C47227F4D7E200BEA516 /* CircuitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE86C47127F4D7E200BEA516 /* CircuitViewController.swift */; };
 		BE86C47427F4D7ED00BEA516 /* DriverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE86C47327F4D7ED00BEA516 /* DriverViewController.swift */; };
-		BE86C47727F5BB8000BEA516 /* RankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE86C47627F5BB8000BEA516 /* RankingViewController.swift */; };
+		BEE48EDB27F742730028E9ED /* RankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE48EDA27F742730028E9ED /* RankingViewController.swift */; };
 		D8E6A78DAE06FAC6A0ACDCAA /* Pods_F1Bit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5B7837AC684FB570907563A /* Pods_F1Bit.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,7 +37,7 @@
 		BE86C46E27F4D4B400BEA516 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		BE86C47127F4D7E200BEA516 /* CircuitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircuitViewController.swift; sourceTree = "<group>"; };
 		BE86C47327F4D7ED00BEA516 /* DriverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverViewController.swift; sourceTree = "<group>"; };
-		BE86C47627F5BB8000BEA516 /* RankingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewController.swift; sourceTree = "<group>"; };
+		BEE48EDA27F742730028E9ED /* RankingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +58,6 @@
 				5413464D8A0BBC234C5ED8E1 /* Pods-F1Bit.debug.xcconfig */,
 				79F222BC5414DC8B0A81E79C /* Pods-F1Bit.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -126,7 +125,7 @@
 		BE86C47527F5BB6200BEA516 /* RankingPage */ = {
 			isa = PBXGroup;
 			children = (
-				BE86C47627F5BB8000BEA516 /* RankingViewController.swift */,
+				BEE48EDA27F742730028E9ED /* RankingViewController.swift */,
 			);
 			path = RankingPage;
 			sourceTree = "<group>";
@@ -253,7 +252,7 @@
 				BE86C47227F4D7E200BEA516 /* CircuitViewController.swift in Sources */,
 				BE86C47427F4D7ED00BEA516 /* DriverViewController.swift in Sources */,
 				BE6E8FE927F25C6C009EC8A7 /* HomeViewController.swift in Sources */,
-				BE86C47727F5BB8000BEA516 /* RankingViewController.swift in Sources */,
+				BEE48EDB27F742730028E9ED /* RankingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
