@@ -30,8 +30,8 @@
             <objects>
                 <navigationController id="2lS-Iw-4WO" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Ranking" image="lanyardcard" catalog="system" id="Asd-TQ-Xn0"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="b2v-xW-WHO">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="b2v-xW-WHO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" systemColor="systemRedColor"/>
                     </navigationBar>
@@ -51,14 +51,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Voj-MG-ctj">
-                                <rect key="frame" x="0.0" y="403" width="375" height="166"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="2iC-3u-Hm7">
+                                <rect key="frame" x="16" y="44" width="343" height="35"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="08b-kL-wOV">
+                                        <rect key="frame" x="0.0" y="0.0" width="160" height="35"/>
+                                        <color key="backgroundColor" systemColor="systemGray3Color"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="0br-n1-Xjn"/>
+                                            <constraint firstAttribute="width" constant="160" id="Sgc-cB-LQp"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5ch-Le-V0Q">
+                                        <rect key="frame" x="183" y="0.0" width="160" height="35"/>
+                                        <color key="backgroundColor" systemColor="systemGray3Color"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="VrU-Ml-Dni"/>
+                                            <constraint firstAttribute="width" constant="160" id="ehl-0Q-gdc"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="az7-ib-Cub">
+                                <rect key="frame" x="0.0" y="374" width="375" height="195"/>
                                 <subviews>
                                     <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="030-mJ-TIN">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="375" id="0Ci-AX-WMT"/>
-                                            <constraint firstAttribute="height" constant="44" id="O7d-xO-cqw"/>
+                                            <constraint firstAttribute="width" constant="375" id="7gY-Zk-Rkw"/>
+                                            <constraint firstAttribute="height" constant="45" id="M0C-m6-WIn"/>
                                         </constraints>
                                         <items>
                                             <barButtonItem systemItem="flexibleSpace" id="pkm-tf-kig"/>
@@ -67,58 +92,31 @@
                                         <color key="barTintColor" systemColor="systemGray6Color"/>
                                     </toolbar>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5NN-un-qHw">
-                                        <rect key="frame" x="0.0" y="44" width="375" height="122"/>
+                                        <rect key="frame" x="0.0" y="45" width="375" height="150"/>
                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="375" id="8Mo-pj-bM6"/>
-                                            <constraint firstAttribute="height" constant="122" id="Je4-FJ-aWe"/>
+                                            <constraint firstAttribute="height" constant="150" id="QvX-6K-w2b"/>
+                                            <constraint firstAttribute="width" constant="375" id="yzr-Yp-iI7"/>
                                         </constraints>
                                     </pickerView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="166" id="XAz-8Z-rxS"/>
-                                    <constraint firstAttribute="width" constant="375" id="w6D-zn-vIL"/>
-                                </constraints>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="2iC-3u-Hm7">
-                                <rect key="frame" x="15" y="96" width="345" height="35"/>
-                                <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="08b-kL-wOV">
-                                        <rect key="frame" x="0.0" y="0.0" width="160" height="35"/>
-                                        <color key="backgroundColor" systemColor="systemGray3Color"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="35" id="MhB-5E-VAS"/>
-                                            <constraint firstAttribute="width" constant="160" id="Vqh-LX-ikO"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5ch-Le-V0Q">
-                                        <rect key="frame" x="183" y="0.0" width="162" height="35"/>
-                                        <color key="backgroundColor" systemColor="systemGray3Color"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="35" id="EQr-qx-Uwz"/>
-                                            <constraint firstAttribute="width" constant="160" id="g9W-em-4LG"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="343" id="aYJ-nn-Pcb"/>
-                                    <constraint firstAttribute="height" constant="35" id="vf8-fJ-D8G"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="195" id="MdO-qk-CqA"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="375" id="VWa-e3-mDw"/>
+                                    <constraint firstAttribute="height" constant="195" id="yET-yp-VQC"/>
+                                    <constraint firstAttribute="width" constant="375" id="zNW-ny-HtW"/>
                                 </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="cf6-6r-741"/>
                         <color key="backgroundColor" systemColor="systemRedColor"/>
                         <constraints>
-                            <constraint firstItem="2iC-3u-Hm7" firstAttribute="leading" secondItem="cf6-6r-741" secondAttribute="leading" constant="15" id="ENl-EJ-kdj"/>
-                            <constraint firstItem="cf6-6r-741" firstAttribute="trailing" secondItem="2iC-3u-Hm7" secondAttribute="trailing" constant="15" id="OEh-m6-Ly5"/>
-                            <constraint firstItem="Voj-MG-ctj" firstAttribute="trailing" secondItem="cf6-6r-741" secondAttribute="trailing" id="Opd-CJ-H8g"/>
-                            <constraint firstItem="Voj-MG-ctj" firstAttribute="leading" secondItem="cf6-6r-741" secondAttribute="leading" id="UnL-qn-Nml"/>
-                            <constraint firstItem="Voj-MG-ctj" firstAttribute="bottom" secondItem="cf6-6r-741" secondAttribute="bottom" id="bkd-ZB-08E"/>
-                            <constraint firstItem="2iC-3u-Hm7" firstAttribute="top" secondItem="cf6-6r-741" secondAttribute="top" id="sYr-Ch-Nml"/>
+                            <constraint firstItem="az7-ib-Cub" firstAttribute="leading" secondItem="cf6-6r-741" secondAttribute="leading" id="4rI-gI-Iwe"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="az7-ib-Cub" secondAttribute="bottom" id="UbB-gG-s3r"/>
+                            <constraint firstItem="cf6-6r-741" firstAttribute="trailing" secondItem="2iC-3u-Hm7" secondAttribute="trailing" constant="16" id="euB-RT-5ww"/>
+                            <constraint firstItem="az7-ib-Cub" firstAttribute="trailing" secondItem="cf6-6r-741" secondAttribute="trailing" id="fTy-n1-Nhk"/>
+                            <constraint firstItem="2iC-3u-Hm7" firstAttribute="top" secondItem="cf6-6r-741" secondAttribute="top" id="hQg-0X-3YO"/>
+                            <constraint firstItem="2iC-3u-Hm7" firstAttribute="leading" secondItem="cf6-6r-741" secondAttribute="leading" constant="16" id="owd-Hw-GaM"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
