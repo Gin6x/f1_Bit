@@ -30,8 +30,8 @@
             <objects>
                 <navigationController id="2lS-Iw-4WO" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Ranking" image="lanyardcard" catalog="system" id="Asd-TQ-Xn0"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="b2v-xW-WHO">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="b2v-xW-WHO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" systemColor="systemRedColor"/>
                     </navigationBar>
@@ -81,7 +81,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="2iC-3u-Hm7">
-                                <rect key="frame" x="15" y="44" width="345" height="35"/>
+                                <rect key="frame" x="15" y="96" width="345" height="35"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="08b-kL-wOV">
                                         <rect key="frame" x="0.0" y="0.0" width="160" height="35"/>
@@ -190,8 +190,8 @@
             <objects>
                 <navigationController id="Tta-Wp-6m6" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" id="Ta4-EY-F8V"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="z9K-KQ-SfK">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="z9K-KQ-SfK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
