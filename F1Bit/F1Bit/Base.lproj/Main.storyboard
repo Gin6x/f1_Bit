@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zrp-Py-a8E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vxg-ZI-JqE">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -30,8 +30,8 @@
             <objects>
                 <navigationController id="2lS-Iw-4WO" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Ranking" image="lanyardcard" catalog="system" id="Asd-TQ-Xn0"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="b2v-xW-WHO">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="b2v-xW-WHO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" systemColor="systemRedColor"/>
                     </navigationBar>
@@ -52,11 +52,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="2iC-3u-Hm7">
-                                <rect key="frame" x="16" y="44" width="343" height="35"/>
+                                <rect key="frame" x="16" y="96" width="343" height="35"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="08b-kL-wOV">
                                         <rect key="frame" x="0.0" y="0.0" width="160" height="35"/>
-                                        <color key="backgroundColor" systemColor="systemGray3Color"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="0br-n1-Xjn"/>
                                             <constraint firstAttribute="width" constant="160" id="Sgc-cB-LQp"/>
@@ -66,7 +66,7 @@
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5ch-Le-V0Q">
                                         <rect key="frame" x="183" y="0.0" width="160" height="35"/>
-                                        <color key="backgroundColor" systemColor="systemGray3Color"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="VrU-Ml-Dni"/>
                                             <constraint firstAttribute="width" constant="160" id="ehl-0Q-gdc"/>
@@ -89,11 +89,11 @@
                                             <barButtonItem systemItem="flexibleSpace" id="pkm-tf-kig"/>
                                             <barButtonItem systemItem="done" id="EKW-aS-556"/>
                                         </items>
-                                        <color key="barTintColor" systemColor="systemGray6Color"/>
+                                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </toolbar>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5NN-un-qHw">
                                         <rect key="frame" x="0.0" y="45" width="375" height="150"/>
-                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="QvX-6K-w2b"/>
                                             <constraint firstAttribute="width" constant="375" id="yzr-Yp-iI7"/>
@@ -356,12 +356,6 @@
         </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGray3Color">
-            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

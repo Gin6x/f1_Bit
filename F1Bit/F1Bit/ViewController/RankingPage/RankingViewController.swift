@@ -14,10 +14,10 @@ class RankingViewController: UIViewController {
     @IBOutlet var seasonsTextField: UITextField!
     
     //Options for pickerView
-    let ranks = ["Driver", "Team", "YOMAN"]
+    let ranks = ["Driver", "Team"]
     let seasons = ["2022", "2021", "2020"]
-    var whichRank = "Driver"
-    var whichSeason = "2022"
+//    var whichRank = "Driver"
+//    var whichSeason = "2022"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,8 +27,10 @@ class RankingViewController: UIViewController {
         
         ranksTextField.inputView = rankingPickerView
         seasonsTextField.inputView = rankingPickerView
-        ranksTextField.text = "\(whichRank)"
-        seasonsTextField.text = "\(whichSeason)"
+        ranksTextField.text = ranks[0]
+        seasonsTextField.text = seasons[0]
+        ranksTextField.tag = 0
+        seasonsTextField.tag = 1
         
         //        getOptions()
     }
@@ -69,9 +71,9 @@ extension RankingViewController: UIPickerViewDataSource {
     //Use "whichRank" && "whichSeason" to see user's final choice
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if component == 0 {
-            whichRank = ranks[row]
+            ranksTextField.text = ranks[row]
         } else {
-            whichSeason = seasons[row]
+            seasonsTextField.text = seasons[row]
         }
     }
     
