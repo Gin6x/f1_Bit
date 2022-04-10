@@ -31,18 +31,25 @@ class RankingViewController: UIViewController {
     @IBAction func rankingPickerButton(_ sender: UIButton) {
         let selectionPickerVC = storyboard?.instantiateViewController(withIdentifier: "SelectionPicker_VC") as! SelectionPickerViewController
         selectionPickerVC.rankselectionDelegate = self
+        selectionPickerVC.modalPresentationStyle = .overCurrentContext
+        selectionPickerVC.modalTransitionStyle = .crossDissolve
+        present(selectionPickerVC, animated: true, completion: nil)
     }
     
     @IBAction func seasonPickerButton(_ sender: UIButton) {
         let selectionPickerVC = storyboard?.instantiateViewController(withIdentifier: "SelectionPicker_VC") as! SelectionPickerViewController
         selectionPickerVC.rankselectionDelegate = self
+        selectionPickerVC.modalPresentationStyle = .overCurrentContext
+        selectionPickerVC.modalTransitionStyle = .crossDissolve
+        present(selectionPickerVC, animated: true, completion: nil)
     }
 }
 
 extension RankingViewController: rankSelectionDelegate {
     func selectedOption(rank: String, season: String) {
-        rankingButton.titleLabel?.text = rank
-        seasonButton.titleLabel?.text = season
+        rankingButton.setTitle(rank, for: .normal)
+        seasonButton.setTitle(season, for: .normal)
+        print("Selected \(rank) ranking in \(season) season")
     }
 }
 

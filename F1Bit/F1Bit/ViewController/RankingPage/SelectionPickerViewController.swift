@@ -37,7 +37,7 @@ class SelectionPickerViewController: UIViewController {
     }
     
     @IBAction func doneButton (_ sender: UIBarButtonItem) {
-//        rankselectionDelegate.selectedOption(rank: selectedRank, season: selectedSeason)
+        rankselectionDelegate.selectedOption(rank: selectedRank, season: selectedSeason)
         navigationController?.popViewController(animated: true)
         dismiss(animated: true, completion: nil)
     }
@@ -72,12 +72,9 @@ extension SelectionPickerViewController: UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if component == 0 {
             selectedRank = ranks[row]
-            print(selectedRank)
         } else {
             selectedSeason = seasons[row]
-            print(selectedSeason)
         }
-        rankselectionDelegate.selectedOption(rank: selectedRank, season: selectedSeason)
     }
 }
 
