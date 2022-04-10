@@ -18,10 +18,12 @@ class SelectionPickerViewController: UIViewController {
     @IBOutlet weak var selctionPickerStackView: UIStackView!
     @IBOutlet weak var rankingPickerView: UIPickerView!
     
-    //Options for pickerView
-    let ranks = ["Driver", "Team"]
+    //All options for pickerView
+    let ranks = ["drivers", "teams"]
     let seasons = ["2022", "2021", "2020"]
-    var selectedRank = "Driver"
+    
+    //Initial options are shown as below
+    var selectedRank = "drivers"
     var selectedSeason = "2022"
     
     override func viewDidLoad() {
@@ -50,7 +52,7 @@ extension SelectionPickerViewController: UIPickerViewDataSource {
         return 2
     }
     
-    //How many row in each component
+    //Set row in each component
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if component == 0 {
             return ranks.count
@@ -68,7 +70,7 @@ extension SelectionPickerViewController: UIPickerViewDataSource {
         return seasons[row]
     }
     
-    //Change both textfield according to pickerView's option
+    //Get both selections
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if component == 0 {
             selectedRank = ranks[row]
