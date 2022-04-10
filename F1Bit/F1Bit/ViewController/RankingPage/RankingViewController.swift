@@ -8,30 +8,16 @@
 import UIKit
 
 class RankingViewController: UIViewController {
-    
-    @IBOutlet var rankingPickerView: UIPickerView!
+
     @IBOutlet var ranksTextField: UITextField!
     @IBOutlet var seasonsTextField: UITextField!
+    @IBOutlet weak var rankingButton: UIButton!
+    @IBOutlet weak var seasonButton: UIButton!
     
-    //Options for pickerView
-    let ranks = ["Driver", "Team"]
-    let seasons = ["2022", "2021", "2020"]
-//    var whichRank = "Driver"
-//    var whichSeason = "2022"
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        rankingPickerView.dataSource = self
-        rankingPickerView.delegate = self
-        
-        ranksTextField.inputView = rankingPickerView
-        seasonsTextField.inputView = rankingPickerView
-        ranksTextField.text = ranks[0]
-        seasonsTextField.text = seasons[0]
-        ranksTextField.tag = 0
-        seasonsTextField.tag = 1
-        
         //        getOptions()
     }
 //    func getOptions() {
@@ -41,44 +27,27 @@ class RankingViewController: UIViewController {
 //
 //        self.driverBtn.setOptions(options: options, optionIds: ids, selectedIndex: 0)
 //    }
+    
+    @IBAction func rankingPickerButton(_ sender: UIButton) {
+        let selectionPickerVC = storyboard?.instantiateViewController(withIdentifier: "SelectionPicker_VC") as! SelectionPickerViewController
+        selectionPickerVC.rankselectionDelegate = self
+    }
+    
+    @IBAction func seasonPickerButton(_ sender: UIButton) {
+        let selectionPickerVC = storyboard?.instantiateViewController(withIdentifier: "SelectionPicker_VC") as! SelectionPickerViewController
+        selectionPickerVC.rankselectionDelegate = self
+    }
 }
 
-extension RankingViewController: UIPickerViewDataSource {
-    
-    //How many components to select
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 2
+extension RankingViewController: rankSelectionDelegate {
+    func selectedOption(rank: String, season: String) {
+        rankingButton.titleLabel?.text = rank
+        seasonButton.titleLabel?.text = season
     }
-    
-    //How many row in each component
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        if component == 0 {
-            return ranks.count
-        }
-        
-        return seasons.count
-    }
-    
-    //Set title for each row
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if component == 0 {
-            return ranks[row]
-        }
-        
-        return seasons[row]
-    }
-    
-    //Use "whichRank" && "whichSeason" to see user's final choice
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if component == 0 {
-            ranksTextField.text = ranks[row]
-        } else {
-            seasonsTextField.text = seasons[row]
-        }
-    }
-    
 }
 
-extension RankingViewController: UIPickerViewDelegate {}
+
+
+
 
 

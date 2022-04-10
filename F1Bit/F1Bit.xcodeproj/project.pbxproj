@@ -13,6 +13,7 @@
 		BE23606727E152490025F77B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE23606527E152490025F77B /* Main.storyboard */; };
 		BE23606927E1524B0025F77B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE23606827E1524B0025F77B /* Assets.xcassets */; };
 		BE23606C27E1524C0025F77B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE23606A27E1524C0025F77B /* LaunchScreen.storyboard */; };
+		BE3CA6352802E48F006D9098 /* SelectionPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3CA6342802E48F006D9098 /* SelectionPickerViewController.swift */; };
 		BE6E8FE927F25C6C009EC8A7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6E8FE827F25C6C009EC8A7 /* HomeViewController.swift */; };
 		BE86C46F27F4D4B400BEA516 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE86C46E27F4D4B400BEA516 /* IntroViewController.swift */; };
 		BE86C47227F4D7E200BEA516 /* CircuitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE86C47127F4D7E200BEA516 /* CircuitViewController.swift */; };
@@ -33,6 +34,7 @@
 		BE23606827E1524B0025F77B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE23606B27E1524C0025F77B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BE23606D27E1524C0025F77B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE3CA6342802E48F006D9098 /* SelectionPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionPickerViewController.swift; sourceTree = "<group>"; };
 		BE6E8FE827F25C6C009EC8A7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		BE86C46E27F4D4B400BEA516 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		BE86C47127F4D7E200BEA516 /* CircuitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircuitViewController.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				BEE48EDA27F742730028E9ED /* RankingViewController.swift */,
+				BE3CA6342802E48F006D9098 /* SelectionPickerViewController.swift */,
 			);
 			path = RankingPage;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 				BE86C47427F4D7ED00BEA516 /* DriverViewController.swift in Sources */,
 				BE6E8FE927F25C6C009EC8A7 /* HomeViewController.swift in Sources */,
 				BEE48EDB27F742730028E9ED /* RankingViewController.swift in Sources */,
+				BE3CA6352802E48F006D9098 /* SelectionPickerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

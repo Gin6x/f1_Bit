@@ -43,6 +43,71 @@
             </objects>
             <point key="canvasLocation" x="828" y="940"/>
         </scene>
+        <!--Selection Picker View Controller-->
+        <scene sceneID="otk-hs-dxW">
+            <objects>
+                <viewController storyboardIdentifier="SelectionPicker_VC" modalTransitionStyle="crossDissolve" modalPresentationStyle="currentContext" id="41n-cA-yaB" customClass="SelectionPickerViewController" customModule="F1Bit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8Lq-Cw-FqS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="iYG-fh-xvN">
+                                <rect key="frame" x="33.5" y="221" width="308" height="205"/>
+                                <subviews>
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rbd-B9-SNZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="308" height="45"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="VHA-pq-Sxa"/>
+                                            <constraint firstAttribute="width" constant="308" id="tzL-I8-esK"/>
+                                        </constraints>
+                                        <items>
+                                            <barButtonItem systemItem="cancel" id="XML-Nx-xV0">
+                                                <connections>
+                                                    <action selector="cancelButton:" destination="41n-cA-yaB" id="8oi-JS-95h"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem systemItem="flexibleSpace" id="2GL-r3-lLO"/>
+                                            <barButtonItem systemItem="done" id="ec8-7d-kxK">
+                                                <connections>
+                                                    <action selector="doneButton:" destination="41n-cA-yaB" id="w5y-QB-Xjh"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </items>
+                                        <toolbarAppearance key="standardAppearance"/>
+                                    </toolbar>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fvo-MF-z4a">
+                                        <rect key="frame" x="0.0" y="45" width="308" height="160"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="160" id="AhN-X8-iMN"/>
+                                            <constraint firstAttribute="width" constant="308" id="Whe-By-W4A"/>
+                                        </constraints>
+                                    </pickerView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="205" id="Da9-VY-WfJ"/>
+                                    <constraint firstAttribute="width" constant="308" id="WLE-us-yGR"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="HYW-d8-rYP"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="iYG-fh-xvN" firstAttribute="centerY" secondItem="8Lq-Cw-FqS" secondAttribute="centerY" id="D59-qC-S3v"/>
+                            <constraint firstItem="iYG-fh-xvN" firstAttribute="centerX" secondItem="8Lq-Cw-FqS" secondAttribute="centerX" id="Slg-gb-6U2"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="rankingPickerView" destination="Fvo-MF-z4a" id="JvZ-MF-whu"/>
+                        <outlet property="selctionPickerStackView" destination="iYG-fh-xvN" id="VKJ-wb-pfU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kil-ct-qsu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="828" y="2349.1754122938532"/>
+        </scene>
         <!--Ranking-->
         <scene sceneID="9d9-gW-CO6">
             <objects>
@@ -57,6 +122,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="08b-kL-wOV">
                                         <rect key="frame" x="0.0" y="0.0" width="160" height="35"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="0br-n1-Xjn"/>
                                             <constraint firstAttribute="width" constant="160" id="Sgc-cB-LQp"/>
@@ -67,6 +133,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5ch-Le-V0Q">
                                         <rect key="frame" x="183" y="0.0" width="160" height="35"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="VrU-Ml-Dni"/>
                                             <constraint firstAttribute="width" constant="160" id="ehl-0Q-gdc"/>
@@ -75,46 +142,38 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
+                                <gestureRecognizers/>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="az7-ib-Cub">
-                                <rect key="frame" x="0.0" y="374" width="375" height="195"/>
-                                <subviews>
-                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="030-mJ-TIN">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="375" id="7gY-Zk-Rkw"/>
-                                            <constraint firstAttribute="height" constant="45" id="M0C-m6-WIn"/>
-                                        </constraints>
-                                        <items>
-                                            <barButtonItem systemItem="flexibleSpace" id="pkm-tf-kig"/>
-                                            <barButtonItem systemItem="done" id="EKW-aS-556"/>
-                                        </items>
-                                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </toolbar>
-                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5NN-un-qHw">
-                                        <rect key="frame" x="0.0" y="45" width="375" height="150"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="150" id="QvX-6K-w2b"/>
-                                            <constraint firstAttribute="width" constant="375" id="yzr-Yp-iI7"/>
-                                        </constraints>
-                                    </pickerView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="195" id="MdO-qk-CqA"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="375" id="VWa-e3-mDw"/>
-                                    <constraint firstAttribute="height" constant="195" id="yET-yp-VQC"/>
-                                    <constraint firstAttribute="width" constant="375" id="zNW-ny-HtW"/>
-                                </constraints>
-                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wl9-d6-lgb">
+                                <rect key="frame" x="204" y="309" width="84" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="2022"/>
+                                <connections>
+                                    <action selector="seasonPickerButton:" destination="Xyb-co-xI6" eventType="touchUpInside" id="Qn3-T0-AGo"/>
+                                    <action selector="selectionButton:" destination="Xyb-co-xI6" eventType="touchUpInside" id="NBa-VI-iHK"/>
+                                    <segue destination="41n-cA-yaB" kind="popoverPresentation" popoverAnchorView="wl9-d6-lgb" id="cBN-90-7px">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y46-os-bB7">
+                                <rect key="frame" x="79" y="309" width="84" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Driver"/>
+                                <connections>
+                                    <action selector="rankingPickerButton:" destination="Xyb-co-xI6" eventType="touchUpInside" id="rC7-2y-EW9"/>
+                                    <segue destination="41n-cA-yaB" kind="popoverPresentation" popoverAnchorView="Y46-os-bB7" id="ae0-AP-ajS">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="cf6-6r-741"/>
                         <color key="backgroundColor" systemColor="systemRedColor"/>
                         <constraints>
-                            <constraint firstItem="az7-ib-Cub" firstAttribute="leading" secondItem="cf6-6r-741" secondAttribute="leading" id="4rI-gI-Iwe"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="az7-ib-Cub" secondAttribute="bottom" id="UbB-gG-s3r"/>
                             <constraint firstItem="cf6-6r-741" firstAttribute="trailing" secondItem="2iC-3u-Hm7" secondAttribute="trailing" constant="16" id="euB-RT-5ww"/>
-                            <constraint firstItem="az7-ib-Cub" firstAttribute="trailing" secondItem="cf6-6r-741" secondAttribute="trailing" id="fTy-n1-Nhk"/>
                             <constraint firstItem="2iC-3u-Hm7" firstAttribute="top" secondItem="cf6-6r-741" secondAttribute="top" id="hQg-0X-3YO"/>
                             <constraint firstItem="2iC-3u-Hm7" firstAttribute="leading" secondItem="cf6-6r-741" secondAttribute="leading" constant="16" id="owd-Hw-GaM"/>
                         </constraints>
@@ -123,14 +182,15 @@
                     <navigationItem key="navigationItem" title="Ranking" id="F3b-Ti-t23"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="rankingPickerView" destination="5NN-un-qHw" id="goZ-jr-wX8"/>
+                        <outlet property="rankingButton" destination="Y46-os-bB7" id="sux-Ic-DH5"/>
                         <outlet property="ranksTextField" destination="08b-kL-wOV" id="jJ5-jk-AHQ"/>
+                        <outlet property="seasonButton" destination="wl9-d6-lgb" id="U6a-ef-ymz"/>
                         <outlet property="seasonsTextField" destination="5ch-Le-V0Q" id="tRb-EB-lKY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y50-LU-D5G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="828" y="1643.9280359820091"/>
+            <point key="canvasLocation" x="828" y="1649.3253373313344"/>
         </scene>
         <!--More-->
         <scene sceneID="tnR-sF-vTN">
@@ -347,6 +407,9 @@
             <point key="canvasLocation" x="3770" y="371"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="cBN-90-7px"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="house" catalog="system" width="128" height="106"/>
         <image name="lanyardcard" catalog="system" width="108" height="128"/>
