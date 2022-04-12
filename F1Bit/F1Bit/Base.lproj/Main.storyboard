@@ -159,12 +159,24 @@
                                     <constraint firstAttribute="width" constant="343" id="y2I-Jc-eTi"/>
                                 </constraints>
                             </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Fht-9e-rOn">
+                                <rect key="frame" x="16" y="142" width="343" height="411"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="343" id="AuW-ao-POU"/>
+                                    <constraint firstAttribute="height" constant="411" id="bYN-Cv-H3R"/>
+                                </constraints>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="cf6-6r-741"/>
                         <color key="backgroundColor" systemColor="systemRedColor"/>
                         <constraints>
+                            <constraint firstItem="Fht-9e-rOn" firstAttribute="top" secondItem="e0O-Wi-kkR" secondAttribute="bottom" constant="16" id="7ak-uF-9f1"/>
+                            <constraint firstItem="Fht-9e-rOn" firstAttribute="leading" secondItem="cf6-6r-741" secondAttribute="leading" constant="16" id="MmY-yu-Vei"/>
+                            <constraint firstItem="cf6-6r-741" firstAttribute="trailing" secondItem="Fht-9e-rOn" secondAttribute="trailing" constant="16" id="RHp-wU-aXw"/>
                             <constraint firstItem="cf6-6r-741" firstAttribute="trailing" secondItem="e0O-Wi-kkR" secondAttribute="trailing" constant="16" id="UWG-x6-XCz"/>
                             <constraint firstItem="e0O-Wi-kkR" firstAttribute="leading" secondItem="cf6-6r-741" secondAttribute="leading" constant="16" id="aJb-7e-Ie4"/>
+                            <constraint firstItem="cf6-6r-741" firstAttribute="bottom" secondItem="Fht-9e-rOn" secondAttribute="bottom" constant="16" id="bGS-PU-lkX"/>
                             <constraint firstItem="e0O-Wi-kkR" firstAttribute="top" secondItem="cf6-6r-741" secondAttribute="top" id="iS4-Tw-yE6"/>
                         </constraints>
                     </view>
@@ -173,6 +185,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="rankingButton" destination="Y46-os-bB7" id="sux-Ic-DH5"/>
+                        <outlet property="rankingTableView" destination="Fht-9e-rOn" id="xXU-YA-8fs"/>
                         <outlet property="seasonButton" destination="wl9-d6-lgb" id="U6a-ef-ymz"/>
                     </connections>
                 </viewController>
