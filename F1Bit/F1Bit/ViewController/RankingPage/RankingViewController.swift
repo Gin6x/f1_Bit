@@ -7,6 +7,25 @@
 
 import UIKit
 
+struct apiData: Codable {
+    let response: [rankingData]
+        
+    struct rankingData: Codable {
+        let position: Int
+        
+        struct driver: Codable {
+            let name: String
+//            let image: URL
+        }
+        struct team: Codable {
+//            let name: String
+            let logo: URL
+        }
+        
+        let point: Int
+    }
+}
+
 class RankingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var rankingButton: UIButton!
@@ -19,14 +38,13 @@ class RankingViewController: UIViewController, UITableViewDelegate, UITableViewD
     // cell reuse id
     let cellReuseIdentifier = "teamCell"
     let cellSpacingHeight: CGFloat = 5
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initialF1ApiCall()
         
         //Register the table view cell class and its reuse id
         self.rankingTableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
-        
         rankingTableView.delegate = self
         rankingTableView.dataSource = self
         rankingTableView.layer.cornerRadius = 10
@@ -173,6 +191,7 @@ extension RankingViewController: rankSelectionDelegate {
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = headers
         
+        
         //Create a URLSession and give different response
         let session = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
             
@@ -190,6 +209,7 @@ extension RankingViewController: rankSelectionDelegate {
             // Convert HTTP Response Data to a simple String
             if let data = data, let dataString = String(data: data, encoding: .utf8) {
                 print("Response data string:\n \(dataString)")
+                
             }
         }
         
