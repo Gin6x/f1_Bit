@@ -7,23 +7,33 @@
 
 import UIKit
 
-struct apiData: Codable {
-    let response: [rankingData]
-        
-    struct rankingData: Codable {
-        let position: Int
-        
-        struct driver: Codable {
-            let name: String
-//            let image: URL
-        }
-        struct team: Codable {
-//            let name: String
-            let logo: URL
-        }
-        
-        let point: Int
+struct RankingData: Codable {
+    let get: String
+    struct Parameters: Codable {
+        let season: String
     }
+    let parameters: Parameters
+//    struct Errors: Codable {
+//        let season: String
+//    }
+//    let errors: Errors
+    let results: Int
+    var response: [ResponseData]
+}
+
+struct ResponseData: Codable {
+    let position: Int
+    struct Driver: Codable {
+        let name: String
+        let image: URL
+    }
+    let driver: Driver
+    struct Team: Codable {
+        let name: String
+        let logo: URL
+    }
+    let team: Team
+    let points: Int?
 }
 
 class RankingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -175,7 +185,6 @@ extension RankingViewController: rankSelectionDelegate {
 
 //Initial api call, default calling: Drivers ranking in 2022
     func initialF1ApiCall() {
-        
         // Create URL Request
         let request = NSMutableURLRequest(url: NSURL(string: "https://api-formula-1.p.rapidapi.com/rankings/drivers?season=2022")! as URL,
                                                 cachePolicy: .useProtocolCachePolicy,
@@ -193,32 +202,40 @@ extension RankingViewController: rankSelectionDelegate {
         
         
         //Create a URLSession and give different response
-        let session = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
-            
-            // Check if Error took place
-            if let error = error {
-                print("There is an error: \(error.localizedDescription), please check the sever")
-                return
-            }
-            
-            // Read HTTP Response Status code
-            if let response = response as? HTTPURLResponse {
-                print("Response HTTP Status code: \(response.statusCode)")
-            }
-            
-            // Convert HTTP Response Data to a simple String
-            if let data = data, let dataString = String(data: data, encoding: .utf8) {
-                print("Response data string:\n \(dataString)")
-                
-            }
-        }
         
-        session.resume()
+//        let session = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
+//
+//            // Check if Error took place
+//            if let error = error {
+//                print("There is an error: \(error.localizedDescription), please check the sever")
+//                return
+//            }
+//
+//            // Read HTTP Response Status code
+//            if let response = response as? HTTPURLResponse{
+//                print("Response HTTP Status code: \(response.statusCode)")
+//            }
+//
+//             //Convert HTTP Response Data to a simple String
+//            if let data = data, let dataString = String(data: data, encoding: .utf8) {
+//                print("Response data string:\n \(dataString)")
+//            }
+//        }.resume()
+        
+        //try new codable method
+        let session = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
+            let decoder = JSONDecoder()
+            decoder.dateDecodingStrategy = .iso8601
+            
+            if let data = data {
+                do {
+                    let rankingData = try
+                    decoder.decode(RankingData.self, from: data)
+                    print(rankingData.response)
+                } catch {
+                    print(error)
+                }
+            }
+        }.resume()
+
     }
-
-
-
-
-
-
-
