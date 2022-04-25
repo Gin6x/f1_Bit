@@ -13,10 +13,6 @@ struct RankingData: Codable {
         let season: String
     }
     let parameters: Parameters
-//    struct Errors: Codable {
-//        let season: String
-//    }
-//    let errors: Errors
     let results: Int
     var response: [ResponseData]
 }
@@ -43,7 +39,9 @@ class RankingViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var rankingTableView: UITableView!
     
     //Data model for cell display
-    let f1Teams = ["Mercedes-AMG Petronas", "Red Bull Racing", "Scuderia Ferrari", "McLaren Racing", "Alpine F1 Team"]
+//    let f1Teams = ["Mercedes-AMG Petronas", "Red Bull Racing", "Scuderia Ferrari", "McLaren Racing", "Alpine F1 Team"]
+    var positionArray: [Int] = []
+    var driverNamesArray: [String] = []
     
     // cell reuse id
     let cellReuseIdentifier = "teamCell"
@@ -51,7 +49,7 @@ class RankingViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        initialF1ApiCall()
+        defaultF1ApiCall()
         
         //Register the table view cell class and its reuse id
         self.rankingTableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
@@ -71,7 +69,7 @@ class RankingViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     // number of section for each cell
     func numberOfSections(in tableView: UITableView) -> Int {
-            return self.f1Teams.count
+            return self.driverNamesArray.count
         }
     
     // number of rows in table view
@@ -98,7 +96,7 @@ class RankingViewController: UIViewController, UITableViewDelegate, UITableViewD
             let teamCell:UITableViewCell = (self.rankingTableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell?)!
             
             // set the text from the data model
-            teamCell.textLabel?.text = self.f1Teams[indexPath.section]
+            teamCell.textLabel?.text = self.driverNamesArray[indexPath.section]
             
             // add border and color
             teamCell.backgroundColor = UIColor.white
@@ -129,7 +127,7 @@ class RankingViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
 }
 
-
+//Delegate for selection of ranking and years
 extension RankingViewController: rankSelectionDelegate {
     func selectedOption(rank: String, season: String) {
         
@@ -139,7 +137,6 @@ extension RankingViewController: rankSelectionDelegate {
         print("Selected \(rank) ranking in \(season) season")
         
         //Make api call using rank and season selections
-        
         func callF1Api() {
             
             // Create URL Request
@@ -183,8 +180,11 @@ extension RankingViewController: rankSelectionDelegate {
     }
 }
 
+
 //Initial api call, default calling: Drivers ranking in 2022
-    func initialF1ApiCall() {
+extension RankingViewController {
+    func defaultF1ApiCall() {
+        
         // Create URL Request
         let request = NSMutableURLRequest(url: NSURL(string: "https://api-formula-1.p.rapidapi.com/rankings/drivers?season=2022")! as URL,
                                                 cachePolicy: .useProtocolCachePolicy,
@@ -199,6 +199,33 @@ extension RankingViewController: rankSelectionDelegate {
         // Specify HTTP Method to use
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = headers
+        
+        let task = URLSession.shared.dataTask(with: request as URLRequest){ (data, response, error) in
+            
+            let decoder = JSONDecoder()
+            
+            if let error = error {
+                print("There is an error: \(error.localizedDescription), please check the sever")
+                return
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                print("Response HTTP Status code: \(response.statusCode)")
+            }
+
+            if let data = data, let rankingDatas = try? decoder.decode(RankingData.self, from: data) {
+                print(rankingDatas.response)
+                for datas in rankingDatas.response {
+                    self.driverNamesArray.append("\(datas.driver.name)")
+//                    print("IF THIS IS WORKING SHOWN BELOW")
+                    print(self.driverNamesArray)
+                }
+            }; DispatchQueue.main.sync {
+                self.rankingTableView.reloadData()
+            }
+        }.resume()
+    }
+}
         
         
         //Create a URLSession and give different response
@@ -223,19 +250,21 @@ extension RankingViewController: rankSelectionDelegate {
 //        }.resume()
         
         //try new codable method
-        let session = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
-            let decoder = JSONDecoder()
-            decoder.dateDecodingStrategy = .iso8601
-            
-            if let data = data {
-                do {
-                    let rankingData = try
-                    decoder.decode(RankingData.self, from: data)
-                    print(rankingData.response)
-                } catch {
-                    print(error)
-                }
-            }
-        }.resume()
-
-    }
+//        let session = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
+//            let decoder = JSONDecoder()
+//
+//            if let response = response as? HTTPURLResponse {
+//                print("Response HTTP Status code: \(response.statusCode)")
+//            }
+//            if let data = data {
+//                do {
+//                    let RankingDatas = try decoder.decode(RankingData.self, from: data)
+//                    print(RankingDatas.response)
+//
+//
+//                } catch {
+//                    print(error)
+//                }
+//            }
+//        }.resume()
+//    }
