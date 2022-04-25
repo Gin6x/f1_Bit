@@ -37,14 +37,17 @@ class RankingViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var rankingButton: UIButton!
     @IBOutlet weak var seasonButton: UIButton!
     @IBOutlet weak var rankingTableView: UITableView!
+    @IBOutlet weak var rankingTableViewCell: RankingTableViewCell!
     
     //Data model for cell display
-//    let f1Teams = ["Mercedes-AMG Petronas", "Red Bull Racing", "Scuderia Ferrari", "McLaren Racing", "Alpine F1 Team"]
-    var positionArray: [Int] = []
+    var positionArray: [String] = []
+//    var teamlogoUIImage = UIImage
+    var teamlogoArray: [UIImageView] = []
     var driverNamesArray: [String] = []
-    
+    var pointsArray: [String] = []
+
     // cell reuse id
-    let cellReuseIdentifier = "teamCell"
+    let cellReuseIdentifier = "rankCell"
     let cellSpacingHeight: CGFloat = 5
     
     override func viewDidLoad() {
@@ -52,19 +55,11 @@ class RankingViewController: UIViewController, UITableViewDelegate, UITableViewD
         defaultF1ApiCall()
         
         //Register the table view cell class and its reuse id
-        self.rankingTableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
+//        self.rankingTableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         rankingTableView.delegate = self
         rankingTableView.dataSource = self
         rankingTableView.layer.cornerRadius = 10
-        //        getOptions()
     }
-//    func getOptions() {
-//
-//        let options = ["Option 1", "Option 2", "Option 3", "Option 4", "Option 5", "Option 6", "Option 7"]
-//        let ids = [0, 1, 2, 3, 4, 5, 6]
-//
-//        self.driverBtn.setOptions(options: options, optionIds: ids, selectedIndex: 0)
-//    }
     //=================================================rankingTableView================================================================//
     
     // number of section for each cell
@@ -93,19 +88,23 @@ class RankingViewController: UIViewController, UITableViewDelegate, UITableViewD
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             
             // create a new cell if needed or reuse an old one
-            let teamCell:UITableViewCell = (self.rankingTableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell?)!
+            rankingTableViewCell = rankingTableView.dequeueReusableCell(withIdentifier: "rankCell")! as UITableViewCell as? RankingTableViewCell
             
-            // set the text from the data model
-            teamCell.textLabel?.text = self.driverNamesArray[indexPath.section]
+            // set all info of cell from the data model
+            rankingTableViewCell.positionLabel.text? = self.positionArray[indexPath.section]
+//            rankingTableViewCell.teamLogoUIImageView.image = self.teamlogoArray[indexPath.section]
+            rankingTableViewCell.nameLabel.text? = self.driverNamesArray[indexPath.section]
+            rankingTableViewCell.pointsLabel.text? = self.pointsArray[indexPath.section]
+            
             
             // add border and color
-            teamCell.backgroundColor = UIColor.white
-            teamCell.layer.borderColor = UIColor.black.cgColor
-            teamCell.layer.borderWidth = 1
-            teamCell.layer.cornerRadius = 8
-            teamCell.clipsToBounds = true
+            rankingTableViewCell.backgroundColor = UIColor.white
+            rankingTableViewCell.layer.borderColor = UIColor.black.cgColor
+            rankingTableViewCell.layer.borderWidth = 1
+            rankingTableViewCell.layer.cornerRadius = 8
+            rankingTableViewCell.clipsToBounds = true
 
-            return teamCell
+            return rankingTableViewCell
         }
     
     //=====================================================rankingTableView==================================================================//
@@ -216,9 +215,11 @@ extension RankingViewController {
             if let data = data, let rankingDatas = try? decoder.decode(RankingData.self, from: data) {
                 print(rankingDatas.response)
                 for datas in rankingDatas.response {
+                    self.positionArray.append("\(datas.position)")
+//                    self.teamlogoArray.append(UIImage.init(coder: datas.driver.image))
                     self.driverNamesArray.append("\(datas.driver.name)")
-//                    print("IF THIS IS WORKING SHOWN BELOW")
-                    print(self.driverNamesArray)
+                    self.pointsArray.append("\(datas.points ?? 0)")
+                    print(self.positionArray)
                 }
             }; DispatchQueue.main.sync {
                 self.rankingTableView.reloadData()
