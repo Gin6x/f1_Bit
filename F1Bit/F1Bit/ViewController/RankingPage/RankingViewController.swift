@@ -23,7 +23,7 @@ struct ResponseData: Codable {
         let name: String
         let image: URL
     }
-    let driver: Driver
+    let driver: Driver?
     struct Team: Codable {
         let name: String
         let logo: URL
@@ -41,10 +41,12 @@ class RankingViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     //Data model for cell display
     var positionArray: [String] = []
-//    var teamlogoUIImage = UIImage
+    var teamlogoUIImageView = UIImageView()
     var teamlogoArray: [UIImageView] = []
-    var driverNamesArray: [String] = []
-    var pointsArray: [String] = []
+    var drivernamesArray: [String] = []
+    var teamnamesArray: [String] = []
+    var driverpointsArray: [String] = []
+    var teampointsArray: [String] = []
 
     // cell reuse id
     let cellReuseIdentifier = "rankCell"
@@ -64,7 +66,11 @@ class RankingViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     // number of section for each cell
     func numberOfSections(in tableView: UITableView) -> Int {
-            return self.driverNamesArray.count
+        if (rankingButton.titleLabel?.text == "teams") {
+            return self.teamnamesArray.count
+        }
+        
+        return self.drivernamesArray.count
         }
     
     // number of rows in table view
@@ -92,9 +98,17 @@ class RankingViewController: UIViewController, UITableViewDelegate, UITableViewD
             
             // set all info of cell from the data model
             rankingTableViewCell.positionLabel.text? = self.positionArray[indexPath.section]
-//            rankingTableViewCell.teamLogoUIImageView.image = self.teamlogoArray[indexPath.section]
-            rankingTableViewCell.nameLabel.text? = self.driverNamesArray[indexPath.section]
-            rankingTableViewCell.pointsLabel.text? = self.pointsArray[indexPath.section]
+            rankingTableViewCell.teamLogoUIImageView = self.teamlogoArray[indexPath.section]
+            
+            
+            //Shown different name on Label according to choice between drivers and teams
+            if (rankingButton.titleLabel?.text == "teams") {
+                rankingTableViewCell.nameLabel.text? = self.teamnamesArray[indexPath.section]
+                rankingTableViewCell.pointsLabel.text = self.teampointsArray[indexPath.section]
+            } else if (rankingButton.titleLabel?.text == "drivers"){
+                rankingTableViewCell.nameLabel.text? = self.drivernamesArray[indexPath.section]
+                rankingTableViewCell.pointsLabel.text? = self.driverpointsArray[indexPath.section]
+            }
             
             
             // add border and color
@@ -126,7 +140,7 @@ class RankingViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
 }
 
-//Delegate for selection of ranking and years
+//Delegate method for selection of ranking and years
 extension RankingViewController: rankSelectionDelegate {
     func selectedOption(rank: String, season: String) {
         
@@ -154,26 +168,37 @@ extension RankingViewController: rankSelectionDelegate {
             request.allHTTPHeaderFields = headers
             
             //Create a URLSession and give different response
-            let session = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
+            let task = URLSession.shared.dataTask(with: request as URLRequest){ [self] (data, response, error) in
                 
-                // Check if Error took place
+                let decoder = JSONDecoder()
+                
                 if let error = error {
                     print("There is an error: \(error.localizedDescription), please check the sever")
                     return
                 }
                 
-                // Read HTTP Response Status code
                 if let response = response as? HTTPURLResponse {
                     print("Response HTTP Status code: \(response.statusCode)")
                 }
-                
-                // Convert HTTP Response Data to a simple String
-                if let data = data, let dataString = String(data: data, encoding: .utf8) {
-                    print("Response data string:\n \(dataString)")
+
+                if let data = data, let rankingDatas = try? decoder.decode(RankingData.self, from: data) {
+                    print(rankingDatas.response)
+                    for datas in rankingDatas.response {
+                        self.positionArray.append("\(datas.position)")
+                                                
+                        if (self.rankingButton.titleLabel?.text == "teams") {
+                            self.teamnamesArray.append("\(datas.team.name)")
+                            self.teampointsArray.append("\(datas.points ?? 0)")
+                        } else if (self.rankingButton.titleLabel?.text == "drivers") {
+                            self.drivernamesArray.append("\(datas.driver?.name ?? "No data")")
+                            self.driverpointsArray.append("\(datas.points ?? 0)")
+                        }
+                        
+                    }
+                }; DispatchQueue.main.sync {
+                    self.rankingTableView.reloadData()
                 }
-            }
-            
-            session.resume()
+            }.resume()
         }
         callF1Api()
     }
@@ -199,6 +224,7 @@ extension RankingViewController {
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = headers
         
+        //Create a URLSession and give different response
         let task = URLSession.shared.dataTask(with: request as URLRequest){ (data, response, error) in
             
             let decoder = JSONDecoder()
@@ -215,11 +241,16 @@ extension RankingViewController {
             if let data = data, let rankingDatas = try? decoder.decode(RankingData.self, from: data) {
                 print(rankingDatas.response)
                 for datas in rankingDatas.response {
+                    
+                    if let teamlogoData = try? Data(contentsOf: datas.team.logo) {
+                        if let teamlogoImage = UIImage(data: teamlogoData) {
+                            self.teamlogoUIImageView.image = teamlogoImage
+                            self.teamlogoArray.append(self.teamlogoUIImageView)
+                        }
+                    }
                     self.positionArray.append("\(datas.position)")
-//                    self.teamlogoArray.append(UIImage.init(coder: datas.driver.image))
-                    self.driverNamesArray.append("\(datas.driver.name)")
-                    self.pointsArray.append("\(datas.points ?? 0)")
-                    print(self.positionArray)
+                    self.drivernamesArray.append("\(datas.driver?.name ?? "No data")")
+                    self.driverpointsArray.append("\(datas.points ?? 0)")
                 }
             }; DispatchQueue.main.sync {
                 self.rankingTableView.reloadData()
@@ -227,7 +258,6 @@ extension RankingViewController {
         }.resume()
     }
 }
-        
         
         //Create a URLSession and give different response
         

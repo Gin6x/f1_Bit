@@ -31,6 +31,7 @@ class SelectionPickerViewController: UIViewController {
         
         rankingPickerView.dataSource = self
         rankingPickerView.delegate = self
+        selctionPickerStackView.layer.cornerRadius = 10
     }
     
     @IBAction func cancelButton(_ sender: UIBarButtonItem) {
